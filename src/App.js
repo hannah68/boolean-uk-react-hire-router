@@ -1,9 +1,14 @@
 import { useState } from "react"
-import "./styles.css"
+import {Routes, Route} from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import PersonProfile from "./pages/PersonProfile";
+import EditPage from "./pages/EditPage/EditPage";
+import "./styles.css";
 
 export default function App() {
-  const [hiredPeople, setHiredPeople] = useState([])
-
+  const [hiredPeople, setHiredPeople] = useState([]);
+  
+  console.log(hiredPeople);
   return (
     <>
       <header>
@@ -14,6 +19,22 @@ export default function App() {
           </ul>
         </nav>
       </header>
+      <Routes>
+        <Route 
+        path='/' 
+        element={<Dashboard hiredPeople={hiredPeople}/>}
+        ></Route>
+
+        <Route 
+        path='/view/:id' 
+        element={<PersonProfile setHiredPeople={setHiredPeople} hiredPeople={hiredPeople}/>}
+        ></Route>
+
+        <Route 
+        path='/edit' 
+        element={<EditPage hiredPeople={hiredPeople} setHiredPeople={setHiredPeople}/>}
+        ></Route>
+      </Routes>
     </>
   )
 }
