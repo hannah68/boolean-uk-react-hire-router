@@ -8,7 +8,7 @@ import "./styles.css";
 export default function App() {
   const [hiredPeople, setHiredPeople] = useState([]);
   
-  console.log(hiredPeople);
+  
   return (
     <>
       <header>

@@ -7,7 +7,6 @@ function PersonProfile(props) {
   const {setHiredPeople, hiredPeople} = props;
   const location = useLocation();
   
-  console.log("location", { person, location });
 
   useEffect(() => {
     if(location.state){

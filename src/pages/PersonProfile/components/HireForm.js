@@ -5,7 +5,6 @@ function HireForm(props) {
   const [wage, setWage] = useState(0);
   const {setHiredPeople, person, hiredPeople} = props;
   
-  console.log('person',person);
 
   const navigate = useNavigate();
 
