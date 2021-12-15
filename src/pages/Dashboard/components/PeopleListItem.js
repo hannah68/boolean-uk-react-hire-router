@@ -5,7 +5,7 @@ function PeopleListItem(props) {
 
   return (
       <li>
-        <Link to={`/view/${person.id.value}`} state={{ person }}>
+        <Link to={`/view/${person.login.uuid}`} state={{ person }}>
           <h3>
             {person.name.first} {person.name.last}
           </h3>

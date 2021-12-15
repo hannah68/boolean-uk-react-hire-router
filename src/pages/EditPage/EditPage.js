@@ -11,9 +11,9 @@ const EditPage = (props) => {
             if(hiredPeople.indexOf(el) !== Number(personId)){
                 return el
             }
-            return false
+            return false;
         })
-        setHiredPeople(arr)
+        setHiredPeople(arr);
         navigate('/');
     }
    
