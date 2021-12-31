@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react"
+import {Link} from "react-router-dom";
 import PeopleList from "./components/PeopleList"
-import { Link } from "react-router-dom";
 
-function Dashboard(props) {
-  const { hiredPeople} = props
+const Dashboard = (props) => {
+  const { hiredPeople } = props
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    fetch('https://randomuser.me/api/?results=50')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.results);
-        setPeople(data.results);
-      })
-  }, []);
-  
+    const fetchRandompeople = async() => {
+      const res = await fetch('https://randomuser.me/api/?results=50');
+      const data = await res.json();
+      setPeople(data.results);
+    }
+    fetchRandompeople();
+  }, [])
 
   return (
     <main className="dashboard-layout">
@@ -24,7 +23,7 @@ function Dashboard(props) {
       </section>
       <section>
         <h2>Hired People</h2>
-        <Link to={'/edit'}>
+        <Link to="/Edit">
           <button>Edit</button>
         </Link>
         <PeopleList people={hiredPeople} />
